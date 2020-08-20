@@ -1,0 +1,12 @@
+#!/usr/bin/env node
+
+// Create HTTP server.
+const app = require('../app');
+app.set('port', 8080);
+
+// Listen on provided port, on all network interfaces.
+
+app.listen(app.get('port'), () => {
+  console.log('Express started on http://localhost:' + app.get('port'));
+});
+

@@ -1,0 +1,50 @@
+<main>
+    <div>
+        <h2>Contact Types</h2>
+        <div class="contact_info">
+            <div>
+                <h3>Job inquiries</h3>
+                <p>
+                    Thank you for your interest in contacting me. Regardless of whether
+                    I am happy in my current role, I am always open to new job opportunities.
+                    I like to take on side projects, helping out in short-term or long-term
+                    ways. I'm also open to general discussion and questions about anything tech
+                    related.
+                </p>
+            </div>
+            <div>
+                <h3>General</h3>
+                <p>
+                    In the options below, I will take any comments to mean we're not necessarily
+                    looking to have a discussion about the topic, you're just giving me an FYI.
+                    If appropriate, I will try to provide a timely response.  I will understand
+                    inquiries to be requesting a response and, as with comments, will do my best
+                    to respond as quickly as possible.
+                </p>
+            </div>
+        </div>
+    </div>
+    <div>
+        <h2>Contact Form</h2>
+        <span id="result_message"></span>
+        <form action="/cv" method="POST">
+            <fieldset class="form_type">
+                <legend>How may I help you?</legend>
+                <input type="radio" name="type" value="inquiry" id="inquiry">
+                <label for="inquiry">General Inquiries</label>
+                <input type="radio" name="type" value="job" id="job">
+                <label for="job">Job Discussion</label>
+                <input type="radio" name="type" value="comment" id="comment">
+                <label for="comment">Comments</label>
+            </fieldset>
+            <fieldset class="form_content">
+                <legend>What may I help you with?</legend>
+                <label for="email">Email</label>
+                <input type="email" name="email" id="email">
+                <label for="message">Message</label>
+                <textarea name="message" id="message"></textarea>
+            </fieldset>
+            <input type="submit" value="Send" id="submit">
+        </form>
+    </div>
+</main>

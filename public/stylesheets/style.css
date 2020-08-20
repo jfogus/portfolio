@@ -1,0 +1,310 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+/* TODO: Check responsive layout. */
+
+a {
+  color: #60a7FF;
+  text-decoration: none;
+}
+
+main {
+  margin-top: 3em;
+}
+
+h1 {
+  background: url('/images/name_bg.png');
+  background-position: right;
+  background-repeat: no-repeat;
+  padding: 0.25em 100px;
+  z-index: -1;
+  font-size: 32px;
+  margin-left: -50px;
+  vertical-align: middle;
+}
+
+header {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-evenly;
+}
+
+header > div {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-evenly;
+  align-items: center;
+  position: relative;
+}
+
+.portrait {
+  border: 1px solid silver;
+  border-radius: 50px;
+  display: inline-block;
+}
+
+nav > ul {
+  display: inline-block;
+  vertical-align: middle;
+  margin: 0;
+  height: 102px;
+}
+
+nav {
+  line-height: 100px;
+  flex-grow: 2;
+}
+
+.internal_links > li {
+  margin-left: 50px;
+  font-size: 1.75em;
+}
+
+.internal_links a {
+  display: inline-block;
+  height: 100px;
+  font-weight: bold;
+}
+
+.internal_links img {
+  width: 32px;
+  vertical-align: middle;
+}
+
+ul {
+  padding: 0;
+}
+
+li {
+  list-style: none;
+  display: inline-block;
+}
+
+.social_logo {
+  width: 50px;
+}
+
+.info, .internal_links, nav {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-evenly;
+}
+
+nav {
+  justify-content: space-around;
+}
+
+.info > section {
+  width: 25%;
+  line-height: 2em;
+  align-items: stretch;
+  font-size: 1.1em;
+}
+
+em {
+  font-weight: bold;
+  color: orange;
+}
+
+.internal_links {
+  flex-grow: 2;
+}
+
+.carousel_container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  margin-top: 1em;
+}
+
+.carousel {
+  flex-grow: 2;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-evenly;
+}
+
+.carousel_arrow {
+  line-height: 300px;
+  align-items: stretch;
+  vertical-align: middle;
+}
+
+.carousel_arrow > img {
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+}
+
+.carousel img {
+  height: 300px;
+  border: 1px solid silver;
+}
+
+.books:nth-of-type(n+4) {
+  display: none;
+}
+
+h3 {
+  font-size: 1.25em;
+}
+
+p, label, legend {
+  font-size: 1.1em;
+  line-height: 2em;
+}
+
+.contact_info {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-evenly;
+}
+
+.contact_info > div {
+  width: 400px;
+}
+
+#result_message {
+  text-align: center;
+  color: red;
+  font-weight: bold;
+}
+
+fieldset {
+  width: 400px;
+  margin: auto;
+  margin-top: 1.5em;
+}
+
+legend {
+  font-weight: bold;
+  font-size: 1.1em;
+}
+
+.form_content > label {
+  display: block;
+  font-size: 1.1em;
+}
+
+.form_content > label:not(:first-of-type) {
+  margin-top: 1.5em;
+}
+
+#message {
+  width: 350px;
+  height: 200px;
+  vertical-align: top;
+}
+
+#email {
+  width: 350px;
+}
+
+#submit {
+  display: block;
+  margin: 1.5em auto;
+  font-size: 1.25em;
+}
+
+.portfolio > section > h2 {
+  display: block;
+}
+
+.project, .portfolio {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-evenly;
+}
+
+.portfolio > section {
+  margin-top: 3em;
+}
+
+.portfolio {
+  flex-wrap: wrap;
+}
+
+.project > div {
+  padding: 0 2em;
+  width: 300px;
+  height: 300px;
+  overflow-y: scroll;
+}
+
+h3 {
+  margin-top: 0;
+}
+
+iframe, .project img {
+  width: 300px;
+  height: 300px;
+  pointer-events: none;
+}
+
+.portfolio li {
+  display: block;
+  line-height: 2em;
+  list-style: square;
+}
+
+.resume {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+}
+
+.basic_info {
+  flex-basis: 30%;
+  padding: 1em;
+}
+
+.job_info {
+  flex-basis: 70%;
+  padding: 1em;
+}
+
+.job_info p {
+  margin-top: 0;
+}
+
+.resume li {
+  display: block;
+}
+
+.job_info h4 {
+  margin: 0.25em 0 0.5em;
+}
+
+.job_info span {
+  font-style: italic;
+}
+
+@media (max-width: 1150px) {
+  h1 {
+    font-size: 24px;
+  }
+}
+
+@media (max-width: 700px) {
+  .info {
+    flex-direction: column;
+  }
+
+  .info > section {
+    width: 100%;
+  }
+}
+
+@media (max-width: 500px) {
+  /* TODO: Set the carousel to only show one book at a time, JS will need fixed. */
+
+}
