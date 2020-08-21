@@ -6,6 +6,7 @@ below indicating what changes will be coming as I make it
 my own.*
 
 ### Roadmap
+* **HTTPS:** get a secure connection established.
 * **Simple redesigns:** the site is intentionally minimalist and that will not change,
   but there are some layout updates that need to be made and responsiveness needs to
   be ensured
@@ -25,6 +26,9 @@ my own.*
 * **Admin Interface:** I should create a simple interface I can log in to, which
   would allow me to quickly add new books I've read, or update my CV (both download
   and for display).
+* **Blog?:** I've thought about this for a while. I'd like to have a blog to
+  consolidate my ideas, view my progress, understand from where I've come.  I'm
+  not sure if I will do this or not.
   
 ### Tools, Libraries, and Frameworks:
 * Node.js
