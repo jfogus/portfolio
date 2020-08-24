@@ -30,19 +30,27 @@
         <form action="/cv" method="POST">
             <fieldset class="form_type">
                 <legend>How may I help you?</legend>
-                <input type="radio" name="type" value="inquiry" id="inquiry">
-                <label for="inquiry">General Inquiries</label>
-                <input type="radio" name="type" value="job" id="job">
-                <label for="job">Job Discussion</label>
-                <input type="radio" name="type" value="comment" id="comment">
-                <label for="comment">Comments</label>
+                <div>
+                    <input type="radio" name="type" value="inquiry" id="inquiry">
+                    <label for="inquiry">General Inquiries</label>
+                </div>
+                <div>
+                    <input type="radio" name="type" value="job" id="job">
+                    <label for="job">Job Discussion</label>
+                </div>
+                <div>
+                    <input type="radio" name="type" value="comment" id="comment">
+                    <label for="comment">Comments</label>
+                </div>
             </fieldset>
             <fieldset class="form_content">
                 <legend>What may I help you with?</legend>
-                <label for="email">Email</label>
-                <input type="email" name="email" id="email">
-                <label for="message">Message</label>
-                <textarea name="message" id="message"></textarea>
+                <div>
+                    <label for="email">Email</label>
+                    <input type="email" name="email" id="email">
+                    <label for="message">Message</label>
+                    <textarea name="message" id="message"></textarea>
+                </div>
             </fieldset>
             <input type="submit" value="Send" id="submit">
         </form>
