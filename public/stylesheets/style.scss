@@ -1,0 +1,440 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  min-width: 300px;
+}
+
+main {
+  margin-top: 3em;
+}
+
+a {
+  color: #60a7FF;
+  text-decoration: none;
+}
+
+ul {
+  padding: 0;
+}
+
+li {
+  list-style: none;
+}
+
+em {
+  font-weight: bold;
+  color: orange;
+}
+
+p, label, legend {
+  font-size: 1.2em;
+  line-height: 2em;
+}
+
+h1 {
+  font-size: 2.25em;
+  margin: 0;
+  padding: 0 1em;
+}
+
+h3 {
+  font-size: 1.25em;
+  margin-top: 0;
+}
+
+h4 {
+  margin: 0.25em 0 0.5em;
+}
+
+header {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-evenly;
+  position: relative;
+
+  > div {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+
+    .portrait {
+      border: 1px solid silver;
+      border-radius: 50px;
+      display: inline-block;
+    }
+  }
+
+  > div {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-evenly;
+    align-items: center;
+    position: relative;
+  }
+}
+
+nav {
+  flex-grow: 2;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+
+  label, input {
+    display: none;
+  }
+
+  ul {
+    flex-grow: 2;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-evenly;
+    align-items: center;
+    font-size: 1.75em;
+    font-weight: bold;
+
+    li {
+      padding: 0.5em;
+    }
+
+    img {
+      width: 32px;
+    }
+  }
+}
+
+.info {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-evenly;
+
+  > section {
+    width: 25%;
+    align-items: stretch;
+  }
+}
+
+.carousel_container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  margin-top: 1em;
+
+  > .carousel_arrow {
+    line-height: 300px;
+    align-items: stretch;
+    vertical-align: middle;
+
+    > img {
+      width: 50px;
+      height: 50px;
+      cursor: pointer;
+    }
+  }
+
+  > .carousel {
+    flex-grow: 2;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-evenly;
+
+    .books:nth-of-type(n+4) {
+      display: none;
+    }
+
+    img {
+      height: 300px;
+      border: 1px solid silver;
+    }
+  }
+}
+
+.contact_info {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+
+  > div {
+    width: 35%;
+  }
+}
+
+#result_message {
+  text-align: center;
+  color: red;
+  font-weight: bold;
+}
+
+fieldset {
+  width: 400px;
+  margin: 1.5em auto 0;
+}
+
+legend {
+  font-weight: bold;
+  font-size: 1.1em;
+}
+
+.form_content {
+  > div {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: stretch;
+  }
+
+  label {
+    display: block;
+    font-size: 1.1em;
+
+    &:not(:first-of-type) {
+      margin-top: 1.5em;
+    }
+  }
+}
+
+#message {
+  height: 200px;
+  vertical-align: top;
+}
+
+#email, #message {
+  padding: 0.5em;
+  border-radius: 5px;
+  border: 1px solid silver;
+}
+
+#submit {
+  display: block;
+  margin: 1.5em auto;
+  font-size: 1.25em;
+}
+
+.project, .portfolio {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-evenly;
+}
+
+.portfolio {
+  flex-wrap: wrap;
+
+  > section {
+    margin-top: 3em;
+
+    > h2 {
+      display: block;
+    }
+  }
+
+  li {
+    display: block;
+    line-height: 2em;
+    list-style: square;
+  }
+}
+
+.project > div {
+  padding: 0 2em;
+  width: 300px;
+  height: 300px;
+  overflow-y: scroll;
+}
+
+iframe, .project img {
+  width: 300px;
+  height: 300px;
+  pointer-events: none;
+}
+
+.resume {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+
+  li {
+    display: block;
+  }
+
+
+  .basic_info {
+    flex-basis: 30%;
+    padding: 1em;
+  }
+
+  .job_info {
+    flex-basis: 70%;
+    padding: 1em;
+
+    p {
+      margin-top: 0;
+    }
+
+    span {
+      font-style: italic;
+    }
+  }
+}
+
+@media (max-width: 1050px) {
+  h1 {
+    font-size: 1.75em;
+  }
+}
+
+@media (max-width: 950px) {
+  // TODO: Collapse the navigation into a menu
+  nav {
+    position: relative;
+
+    label {
+      width: 30px;
+      height: 30px;
+      background-image: url('/images/menu.png');
+      background-size: 30px 30px;
+      display: block;
+      position: absolute;
+      right: 1em;
+      z-index: 4;
+      font-size: 1.5em; // TODO: Replace with bg image
+      font-weight: bold;
+    }
+
+    input:checked ~ ul {
+      display: block;
+    }
+
+    input:checked + label {
+      background-image: url('/images/close.png');
+    }
+
+    > ul {
+      display: none;
+      position: absolute;
+      border: 1px solid silver;
+      border-radius: 5px;
+      box-shadow: 2px 2px 2px grey;
+      background-color: white;
+      padding-top: 2em;
+      width: 200px;
+      top: 0;
+      right: 0;
+      flex-direction: column;
+      z-index: 2;
+    }
+  }
+
+  .info {
+    flex-direction: column;
+
+    > section {
+      width: 100%;
+    }
+  }
+
+  .contact_info {
+    flex-direction: column;
+
+    > div {
+      width: 100%;
+    }
+  }
+
+  .books:not(:first-of-type) {
+    display: none;
+  }
+
+  .resume {
+    flex-direction: column-reverse;
+
+    .basic_info {
+      padding-top: 0;
+
+      .skills {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+
+        > div {
+          padding: 0 0.5em;
+        }
+      }
+    }
+  }
+
+  .portfolio {
+    flex-direction: column;
+
+    section {
+      margin-top: 1em;
+    }
+  }
+
+  .project {
+    flex-direction: column;
+
+    > div {
+      overflow-y: visible;
+      width: 80%;
+      height: auto;
+    }
+
+    img {
+      display: block;
+      margin: 0 auto 2em;
+      width: 100px;
+      height: 100px;
+    }
+
+    iframe {
+      display: block;
+      margin: 0 auto 2em;
+    }
+  }
+}
+
+@media (max-width: 550px) {
+  .form_content, .form_type {
+    width: 85%;
+  }
+
+  nav > ul {
+    margin-top: 0;
+  }
+
+  .portrait {
+    width: 50px;
+  }
+}
+
+@media (max-width: 400px) {
+  body {
+    padding: 15px;
+  }
+
+  p, label, legend {
+    font-size: 0.9em;
+    line-height: 1.25em;
+  }
+
+  h3 {
+    font-size: 1.0em;
+  }
+
+  .resume .basic_info .skills {
+    flex-direction: column;
+    flex-wrap: nowrap;
+  }
+
+  // TODO: iframe becomes too big; probably switch out for logo
+}
