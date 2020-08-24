@@ -7,9 +7,9 @@ my own.*
 
 ### Roadmap
 * **HTTPS:** get a secure connection established.
-* **Simple redesigns:** the site is intentionally minimalist and that will not change,
+* ~~**Simple redesigns:** the site is intentionally minimalist and that will not change,
   but there are some layout updates that need to be made and responsiveness needs to
-  be ensured
+  be ensured~~ *complete*
 * **CSS to Sass:** I like the conveniences of writing in Sass, but that was not an
   option for the project.
 * **Handlebars to Pug/Jade:** I had never used handlebars before this project, and it
