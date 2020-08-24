@@ -1,6 +1,7 @@
 const express = require('express');
 const path = require('path');
 const exphbs = require('express-handlebars');
+const sassMiddleware = require('node-sass-middleware');
 
 // Include routers
 const indexRouter = require('./routes/index');
@@ -18,6 +19,12 @@ app.set('view engine', 'hbs');
 // Set up middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
+app.use(sassMiddleware({
+  src: path.join(__dirname, 'public'),
+  dest: path.join(__dirname, 'public'),
+  indentedSyntax: false,
+  sourceMap: true
+}));
 app.use(express.static(path.join(__dirname, 'public')));
 
 // Top level routing
@@ -40,11 +47,5 @@ app.use((err, req, res, next) => {
   res.status(500);
   res.send('500 - Server error');
 });
-
-// Listen on provided port, on all network interfaces.
-
-// app.listen(app.get('port'), () => {
-//   console.log('Express started on http://localhost:' + app.get('port'));
-// });
 
 module.exports = app;
