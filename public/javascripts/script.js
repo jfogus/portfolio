@@ -1,50 +1,83 @@
 document.addEventListener('DOMContentLoaded', () => {
     let rightArrow = document.getElementById('right_arrow');
     let leftArrow = document.getElementById('left_arrow');
-    // TODO: Lengthen time of scroll
-    // TODO: Have auto-scroll stop when arrows clicked on
+    let books = document.getElementsByClassName('books');
+    let carouselContainer = document.getElementsByClassName('carousel_container')[0];
+    let carousel = document.getElementsByClassName('carousel')[0];
+    let submitButton = document.getElementById('submit');
 
     // Confirm the button is on the page before adding an event handler
-    if (rightArrow) {
-        rightArrow.addEventListener('click', () => {
-            let books = document.getElementsByClassName('books');
-            let firstBook = books[0]
-            let carousel = firstBook.parentNode
+    if (rightArrow && leftArrow && books && carouselContainer && carousel) {
+        // Handle inc/dec carousel elements when resize
+        window.addEventListener('resize', () => {
+            if (getFirstHiddenElem(books) === books[3] && window.innerWidth <= 950) {
+                books[1].style.display = 'none';
+                books[2].style.display = 'none';
+            } else if (getFirstHiddenElem(books) === books[1] && window.innerWidth > 950) {
+                books[1].style.display = 'block';
+                books[2].style.display = 'block';
+            }
+        });
 
-            // Move the first node to the end, hide it, and show the new 3rd node.
-            books[0].style.display = 'none';
+        // Control rightward movement of the carousel
+        rightArrow.addEventListener('click', () => {
+            let firstBook = books[0];
+            let nextBook = getFirstHiddenElem(books);
+
+            // Move the first node to the end, hide it, and show the next node.
+            firstBook.style.display = 'none';
             carousel.removeChild(firstBook);
-            books[2].style.display = 'block';
+            nextBook.style.display = 'block';
             carousel.appendChild(firstBook);
         });
 
-        // Create a timer to trigger the rightArrow event
+        // Control leftward movement of the carousel
+        leftArrow.addEventListener('click', () => {
+            let firstBook = books[books.length - 1];
+            let lastBook = getFirstHiddenElem(books);
+
+            // Get the last displayed book
+            lastBook = lastBook.previousElementSibling;
+
+            // Move the previous last node to the front, show it, and hide the previously last visible node
+            lastBook.style.display = 'none';
+            carousel.removeChild(firstBook);
+            carousel.insertBefore(firstBook, books[0]);
+            firstBook.style.display = 'block';
+        });
+
+        // Create a timer to autoscroll
         let carouselInterval = window.setInterval(() => {
             rightArrow.dispatchEvent(new MouseEvent('click'))
         }, 4000);
-    }
 
-    // Confirm the button is on the page before adding an event handler
-    if (leftArrow) {
-        leftArrow.addEventListener('click', () => {
-            let books = document.getElementsByClassName('books');
-            let lastBook = books[books.length - 1];
-            let carousel = lastBook.parentNode
+        // Stop autoscroll when mouse over the carousel_container
+        carouselContainer.addEventListener('mouseenter', () => {
+            clearInterval(carouselInterval);
+        });
 
-            // Move the last node to the front, show it, and hide the old 3rd node.
-            books[2].style.display = 'none';
-            carousel.removeChild(lastBook);
-            carousel.insertBefore(lastBook, books[0]);
-            lastBook.style.display = 'block';
+        // Restart autoscroll after mouse leaves
+        carouselContainer.addEventListener('mouseleave', () => {
+            carouselInterval = window.setInterval(() => {
+                rightArrow.dispatchEvent(new MouseEvent('click'))
+            }, 4000);
         });
     }
 
     // Set up handler for contact form submission; confirm the button is on the page
-    let submitButton = document.getElementById('submit');
-
     if (submitButton) {
         submitButton.addEventListener('click', (e) => {
             e.preventDefault();
+
+            // Construct the payload
+            let radioButtons = document.getElementsByClassName('form_type')[0].getElementsByTagName('input');
+            let messageType = getSelectedRadioButton(radioButtons);
+
+            let payload = {
+                type: messageType,
+                email: document.getElementById('email').value,
+                message: document.getElementById('message').value
+            }
 
             // Create a new request
             let req = new XMLHttpRequest();
@@ -67,29 +100,42 @@ document.addEventListener('DOMContentLoaded', () => {
                 div.removeChild(form);
             });
 
-            // Construct the payload
-            let fieldset = document.getElementsByClassName('form_type')[0];
-            let radioButtons = fieldset.getElementsByTagName('input');
-            let messageType;
-
-            // Get the value of the checked radio button
-            let i = 0;
-            while (!messageType && i < radioButtons.length) {
-                if (radioButtons[i].checked) {
-                    messageType = radioButtons[i].value;
-                }
-
-                i++;
-            }
-
-            // Construct the payload
-            let payload = {
-                type: messageType,
-                email: document.getElementById('email').value,
-                message: document.getElementById('message').value
-            }
-
             req.send(JSON.stringify(payload));
         });
     }
 });
+
+function getSelectedRadioButton(radioButtonCollection) {
+    /* Receives an HTMLCollection of radio button inputs and returns the first element
+       that has the checked attribute or null. */
+    let messageType;
+    let index = 0;
+
+    while (!messageType && index < radioButtonCollection.length) {
+        if (radioButtonCollection[index].checked) {
+            messageType = radioButtonCollection[index].value;
+        }
+
+        index++;
+    }
+
+    return messageType || null;
+}
+
+function getFirstHiddenElem(htmlCollection) {
+    /* Receives an HTMLCollection and returns the first element that has a computed
+       display of none or null. */
+    let nextBook;
+    let index = 0;
+
+    while (!nextBook && index < htmlCollection.length) {
+        // Check all styles for display: none
+        if (window.getComputedStyle(htmlCollection[index]).display === 'none') {
+            nextBook = htmlCollection[index];
+        }
+
+        index++;
+    }
+
+    return nextBook || null;
+}
