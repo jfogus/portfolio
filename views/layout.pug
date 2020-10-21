@@ -1,0 +1,32 @@
+doctype html
+html(lang="en-US")
+    head
+        meta(charset="utf-8")
+        meta(content="width=device-width, initial-scale=1" name="viewport")
+        meta(property="og:title" content="Joshua Fogus's Portfolio")
+        meta(property="og:url" content="http://www.joshuafogus.com")
+        meta(property="og:image" content="/images/josh_large.png")
+        meta(property="og:description" content="A trove of information about Joshua's skills and \
+            experiences including released and in-development projects, employment history, and how to contact him.")
+        title Joshua Fogus #[title]
+        link(rel="shortcut icon" href="/favicon.ico" type="image/x-icon")
+        link(rel='stylesheet' type="text/css" href='/stylesheets/style.css')
+        script(src="/javascripts/script.js")
+    body
+        header
+            div
+                img(class="portrait" src="/images/josh.png" alt="Josh looking off into the distance")
+                h1 Joshua Fogus
+            nav
+                input(type="checkbox" name="menu_toggle" id="menu_toggle")
+                label(for="menu_toggle")
+                ul
+                    li: a(href="/") Home
+                    li: a(href="/cv") CV
+                    li: a(href="/portfolio") Portfolio
+                    li: a(href="/contact") Contact
+                    li: a(href="https://github.com/jfogus" target="_blank")
+                        img(src="images/github_logo.png" alt="GitHub Logo")
+                    li: a(href="https://www.linkedin.com/in/joshfogus/" target="_blank")
+                        img(src="images/linkedin_logo.png" alt="LinkedIn Logo")
+        block content

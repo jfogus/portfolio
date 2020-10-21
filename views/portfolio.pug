@@ -1,0 +1,33 @@
+extends layout
+
+block content
+    main
+        div(class="portfolio")
+            section
+                h2 Gess-Py
+                div(class="project")
+                    a(href="https://github.com/jfogus/Gess-Py" target="_blank")
+                    div
+                        img(src="/images/github_logo_large.png" alt="Gess Game")
+                    div
+                        div
+                            h3 Technologies
+                            ul
+                                li Python 3
+                                li Qt (PySide2)
+                                li MVC (Model-View-Controller)
+                        div
+                            h3 Concept
+                            p This started as a final project for an intro to computer
+                                | science class. I enjoyed the project and thought it would
+                                | be a good opportunity to try creating a GUI. I opted for
+                                | Qt because it is cross platform, widely used, and works
+                                | with both Python and C++.
+                            p While Qt uses a model/view paradigm, I chose to implement
+                                | the UI using an MVC paradigm. I wanted practice with MVC
+                                | and thought this would be a good opportunity to try it out.
+                            p Gess is a Chess/Go variant which you can find more information
+                                | at #[a(href="https://www.chessvariants.com/crossover.dir/gess.html" target="_blank")
+                                | chessvariants.com]
+            section
+            // TODO: Fill this in

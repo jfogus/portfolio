@@ -1,6 +1,7 @@
 const express = require('express');
 const path = require('path');
-const exphbs = require('express-handlebars');
+// const exphbs = require('express-handlebars');
+const pug = require('pug');
 const sassMiddleware = require('node-sass-middleware');
 
 // Include routers
@@ -13,8 +14,8 @@ const contactRouter = require('./routes/contact');
 const app = express();
 
 // view engine setup
-app.engine('handlebars', exphbs);
-app.set('view engine', 'hbs');
+app.set('view engine', 'pug');
+app.set('views', path.join(__dirname, 'views'));
 
 // Set up middleware
 app.use(express.json());
@@ -29,9 +30,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // Top level routing
 app.use('/', indexRouter);
-app.use('/cv', cvRouter);
-app.use('/portfolio', portfolioRouter);
-app.use('/contact', contactRouter);
+// app.use('/cv', cvRouter);
+// app.use('/portfolio', portfolioRouter);
+// app.use('/contact', contactRouter);
 
 // Catch and handle 404 errors
 app.use((req, res) => {
