@@ -12,8 +12,8 @@ my own.*
   be ensured~~ *complete*
 * **CSS to Sass:** I like the conveniences of writing in Sass, but that was not an
   option for the project.
-* **Handlebars to Pug/Jade:** I had never used handlebars before this project, and it
-  seems pretty nice, but I would like to continue using pug/jade for most projects.
+* ~~**Handlebars to Pug/Jade:** I had never used handlebars before this project, and it
+  seems pretty nice, but I would like to continue using pug/jade for most projects.~~ *complete*
 * **reCaptcha:** Add reCaptcha to the form to limit the number of robots I have to
   hear from.
 * **Form Emails:** Currently the form submissions just get saved to a database. I could
