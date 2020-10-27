@@ -19,8 +19,8 @@ my own.*
 * **Form Emails:** Currently the form submissions just get saved to a database. I could
   have node.js send me emails of the submission, but I think I'm going to write a
   Python script to check the database daily and send out an email.
-* **Favicon:** I should add one in case you find the content so compelling you want
-  to bookmark the site.
+* ~~**Favicon:** I should add one in case you find the content so compelling you want
+  to bookmark the site.~~ *complete*
 * **Slideshow:** Currently the slideshow continues to scroll even when it is being
   interacted with.  This is not a good user experience.  I will be fixing that.
 * **Admin Interface:** I should create a simple interface I can log in to, which
@@ -33,9 +33,9 @@ my own.*
 ### Tools, Libraries, and Frameworks:
 * Node.js
 * Express.js
-* Handlebars
+* Pug(Jade)
 * Vanilla JavaScript
 * Vanilla CSS
 * MySQL
-* AWS Elastic Beanstalk
+* Digital Ocean Droplet
 * Webstorm 
