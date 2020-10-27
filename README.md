@@ -6,7 +6,7 @@ below indicating what changes will be coming as I make it
 my own.*
 
 ### Roadmap
-* **HTTPS:** get a secure connection established.
+* ~~**HTTPS:** get a secure connection established.~~ *complete*
 * ~~**Simple redesigns:** the site is intentionally minimalist and that will not change,
   but there are some layout updates that need to be made and responsiveness needs to
   be ensured~~ *complete*
