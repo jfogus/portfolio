@@ -30,9 +30,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // Top level routing
 app.use('/', indexRouter);
-// app.use('/cv', cvRouter);
-// app.use('/portfolio', portfolioRouter);
-// app.use('/contact', contactRouter);
+app.use('/cv', cvRouter);
+app.use('/portfolio', portfolioRouter);
+app.use('/contact', contactRouter);
 
 // Catch and handle 404 errors
 app.use((req, res) => {
