@@ -5,3 +5,4 @@
 /settings/
 /public/**/*.map
 /public/**/*.css
+/.gitignore/
