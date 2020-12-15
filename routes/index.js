@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const mysqlPool = require('../settings/dbconf');
+const mysqlPool = require('../config/db.config');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -10,7 +10,6 @@ router.get('/', function(req, res, next) {
         .then(books => {
             context.books = books;
             context.page = 'home';
-            console.log(context.books);
 
             res.render('index', context);
         })

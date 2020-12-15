@@ -2,7 +2,7 @@
 /node_modules/
 /app.zip
 /package-lock.json
-/settings/
 /public/**/*.map
 /public/**/*.css
 /.idea/
+.env

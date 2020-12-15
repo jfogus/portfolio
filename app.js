@@ -1,8 +1,14 @@
 const express = require('express');
 const path = require('path');
-// const exphbs = require('express-handlebars');
-const pug = require('pug');
 const sassMiddleware = require('node-sass-middleware');
+const dotenv = require('dotenv');
+
+// Set up environment variables
+const result = dotenv.config();
+
+if (result.error) {
+  throw result.error;
+}
 
 // Include routers
 const indexRouter = require('./routes/index');
@@ -11,7 +17,7 @@ const portfolioRouter = require('./routes/portfolio');
 // Create the app
 const app = express();
 
-// view engine setup
+// View engine setup
 app.set('view engine', 'pug');
 app.set('views', path.join(__dirname, 'views'));
 
