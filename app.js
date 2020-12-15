@@ -6,9 +6,7 @@ const sassMiddleware = require('node-sass-middleware');
 
 // Include routers
 const indexRouter = require('./routes/index');
-const cvRouter = require('./routes/cv');
 const portfolioRouter = require('./routes/portfolio');
-const contactRouter = require('./routes/contact');
 
 // Create the app
 const app = express();
@@ -30,9 +28,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // Top level routing
 app.use('/', indexRouter);
-app.use('/cv', cvRouter);
 app.use('/portfolio', portfolioRouter);
-app.use('/contact', contactRouter);
 
 // Catch and handle 404 errors
 app.use((req, res) => {
