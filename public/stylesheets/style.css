@@ -24,4 +24,10 @@ nav ul img {
   .info .card {
     box-shadow: none; }
 
+h2 > span {
+  font-size: 0.75em; }
+
+.carousel {
+  width: 400px; }
+
 /*# sourceMappingURL=style.css.map */

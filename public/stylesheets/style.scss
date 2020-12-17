@@ -1,9 +1,3 @@
-//body {
-//  padding: 50px;
-//  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-//  min-width: 300px;
-//}
-
 .logo_letter {
   font-family: "Colonna MT", serif;
   font-size: 2.5em;
@@ -36,4 +30,12 @@ nav ul img {
   .card {
     box-shadow: none;
   }
+}
+
+h2 > span {
+  font-size: 0.75em;
+}
+
+.carousel {
+  width: 400px;
 }
