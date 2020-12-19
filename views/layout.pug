@@ -19,9 +19,10 @@ html(lang="en-US")
     body(class="bg-light pb-4")
         header(class="container-xl")
             div(class="navbar navbar-expand-xl navbar-light")
-                img(class="portrait" src="/images/josh.png" alt="Josh looking off into the distance")
-                a(class="navbar-brand pl-3" href="/")
-                    h1 #[span(class="logo_letter") J]osh #[span(class="logo_letter") F]ogus
+                img(class="portrait d-none d-sm-block" src="/images/josh.png" alt="Josh looking off into the distance")
+                a(class="navbar-brand pl-0  pl-sm-3" href="/")
+                    h1(class="d-none d-sm-inline") #[span(class="logo_letter") J]osh #[span(class="logo_letter") F]ogus
+                    h1(class="d-inline d-sm-none logo_letter large") JF
                 button(class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Navigation Toggle")
                     span(class="navbar-toggler-icon")
                 nav(class="collapse navbar-collapse" id="navbarContent")

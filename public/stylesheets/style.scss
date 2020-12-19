@@ -1,6 +1,10 @@
 .logo_letter {
   font-family: "Colonna MT", serif;
   font-size: 2.5em;
+
+  &.large {
+    font-size: 3em;
+  }
 }
 
 .nav-item {
@@ -34,8 +38,4 @@ nav ul img {
 
 h2 > span {
   font-size: 0.75em;
-}
-
-.carousel {
-  width: 400px;
 }
