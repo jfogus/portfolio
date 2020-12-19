@@ -3,26 +3,29 @@ extends layout
 block content
     main(class="container-xl mt-3")
         div(class="row" id="selector")
-            div(class="col-md-3")
-                div(class="btn-group-vertical")
+            div(class="col-12 col-md-3 mb-5 mb-md-0")
+                button(class="btn btn-dark d-block d-md-none mx-auto" type="button" data-toggle="collapse" data-target="#project-buttons") Projects
+                div(class="btn-group-vertical w-100 d-md-block collapse" id="project-buttons")
                     if projects
                         each project in projects
                             - let name = project.name.replace(/\s/g, "-").toLowerCase()
                             button(class="btn btn-light" type="button" data-toggle="collapse" data-target=`#${name}`) #{project.name}
-            div(class="col-md-9")
+            div(class="col-12 col-md-9")
                 if projects
                     each project, i in projects
                         - let name = project.name.replace(/\s/g, "-").toLowerCase()
                         section(id=`${name}` class=`collapse${i === 0 ? ' show' : ''}` data-parent="#selector")
                             h2 #{project.name} #{project.note ? `(${project.note})` : ''}
                             if project.img
-                                div(class="carousel slide carousel-fade mx-auto" data-ride="carousel")
-                                    div(class="carousel-inner")
+                                h3 Screenshots
+                                div(class="carousel slide carousel-fade mx-auto row mb-3" data-ride="carousel")
+                                    div(class="carousel-inner col-12 col-md-6")
                                         each img, j in project.img
                                             - let caption = img.replace(/-/g, " ").slice(0, -4)
                                             div(class=`carousel-item${j === 0 ? ' active' : ''}`)
                                                 img(src=`screenshots/${name}/${img}` class="d-block w-100" data-fancybox=`${name}` data-caption=`${caption}`)
                             div
+                                h3 Technologies
                                 ul
                                     each tech in project.tech
                                         li #{tech}
