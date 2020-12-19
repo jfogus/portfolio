@@ -18,8 +18,8 @@ block content
                             h2 #{project.name} #{project.note ? `(${project.note})` : ''}
                             if project.img
                                 h3 Screenshots
-                                div(class="carousel slide carousel-fade mx-auto" data-ride="carousel")
-                                    div(class="carousel-inner")
+                                div(class="carousel slide carousel-fade mx-auto row mb-3" data-ride="carousel")
+                                    div(class="carousel-inner col-12 col-md-6")
                                         each img, j in project.img
                                             - let caption = img.replace(/-/g, " ").slice(0, -4)
                                             div(class=`carousel-item${j === 0 ? ' active' : ''}`)
