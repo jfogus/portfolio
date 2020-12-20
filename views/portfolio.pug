@@ -33,4 +33,4 @@ block content
                                 h3 Concept
                                 | !{project.desc}
                                 each addr in project.url
-                                    p: a(href=`${addr}`) #{addr.indexOf('github') !== -1 ? 'View on Github' : 'View Site'}
+                                    p: a(href=`${addr}` target="_blank") #{addr.indexOf('github') !== -1 ? 'View on Github' : 'View Site'}

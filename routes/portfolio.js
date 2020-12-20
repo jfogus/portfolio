@@ -7,16 +7,18 @@ router.get('/', (req, res, next) => {
 
     getProjects()
         .then(projects => {
+            console.log(projects);
             let proj = projects.map(obj => {
                 return ({
                     name: obj.name,
                     note: obj.note || '',
                     desc: obj.description,
-                    url: obj.links ? obj.links.split(',') : '',
-                    img: obj.images ? obj.images.split(',') : '',
-                    tech: obj.tech ? obj.tech.split(/[^a-zA-Z1-9().]/).filter(i => i) : ''
+                    url: obj.links.split(/[^a-zA-Z1-9\-:\/.]/).filter(i => i !== 'null' ? i : ''),
+                    img: obj.images.split(/[^a-zA-Z1-9\-.]/).filter(i => i !== 'null' ? i : ''),
+                    tech: obj.tech.split(/[^a-zA-Z1-9().]/).filter(i => i !== 'null' ? i : '')
                 });
             });
+            console.log(proj);
 
             context.projects = proj;
             context.page = 'portfolio';
