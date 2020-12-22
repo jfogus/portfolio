@@ -1,0 +1,25 @@
+// Requires a an object accessible with a name, note, description, img, tech, and links properties
+
+- let name = project.name.replace(/\s/g, "-").toLowerCase()
+section(id=`${name}` class=`collapse${i === 0 ? ' show' : ''}` data-parent="#selector")
+    h2 #{project.name} #{project.note ? `(${project.note})` : ''}
+    if project.images
+        h3 Screenshots
+        span(class="mb-2 d-block") (click image to view)
+        div(class="carousel slide carousel-fade mx-auto row mb-3" data-ride="carousel")
+            div(class="carousel-inner col-12 col-md-6")
+                each img, j in project.images
+                    - let caption = img.replace(/-/g, " ").slice(0, -4)
+                    div(class=`carousel-item${j === 0 ? ' active' : ''}`)
+                        img(src=`screenshots/${name}/${img}` class="d-block w-100" data-fancybox=`${name}` data-caption=`${caption}`)
+    div
+        h3 Technologies
+        ul
+            each tech in project.technologies
+                li #{tech}
+    div
+        h3 Concept
+        | !{project.description}
+        if project.links
+            each addr in project.links
+                p: a(href=`${addr}` target="_blank") #{addr.indexOf('github') !== -1 ? 'View on Github' : 'View Site'}
