@@ -10,10 +10,6 @@ if (result.error) {
   throw result.error;
 }
 
-// Include routers
-const indexRouter = require('./routes/index');
-const portfolioRouter = require('./routes/portfolio');
-
 // Create the app
 const app = express();
 
@@ -33,8 +29,8 @@ app.use(sassMiddleware({
 app.use(express.static(path.join(__dirname, 'public')));
 
 // Top level routing
-app.use('/', indexRouter);
-app.use('/portfolio', portfolioRouter);
+require('./routes/index.routes')(app);
+require('./routes/portfolio.routes')(app);
 
 // Catch and handle 404 errors
 app.use((req, res) => {
