@@ -1,0 +1,14 @@
+// Requires an object accessible with a title, author, url, imgUrl, and review properties
+
+section(class="col-lg-4 col-md-6 col-sm-12 my-2 pl-0")
+    div(class="card pl-3")
+        div(class="row")
+            div(class="card-img col-4 pr-0 pt-4 pl-4")
+                a(href=`${book.url}` target="_blank")
+                    img(src=`${book.imgUrl}` class="card-img")
+            div(class="col-8 pl-0")
+                div(class="card-body")
+                    a(class="card-title" href=`${book.url}` target="_blank")
+                        h5(class="card-text") #{book.title}
+                        h6 #{book.author}
+                    p #{book.review}
