@@ -22,4 +22,13 @@ section(id=`${name}` class=`collapse${i === 0 ? ' show' : ''}` data-parent="#sel
         | !{project.description}
         if project.links
             each addr in project.links
-                p: a(href=`${addr}` target="_blank") #{addr.indexOf('github') !== -1 ? 'View on Github' : 'View Site'}
+
+                - let anchor = ''
+                if addr.indexOf('github') !== -1
+                    - anchor = 'View on Github'
+                else if addr.indexOf('.exe') !== -1
+                    - anchor = 'Download .exe'
+                else
+                    - anchor = 'View Site'
+
+                p: a(href=`${addr}` target="_blank") #{anchor}
